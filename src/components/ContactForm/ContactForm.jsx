@@ -33,6 +33,7 @@ const ContactForm = () => {
 
   return (
     <form className={css.form} onSubmit={handleSubmit}>
+      <h2>Phonebook</h2>
       <div className={css.wrapper}>
         <div>
           <label htmlFor="inputName">Name</label>

@@ -13,6 +13,7 @@ const Filter = () => {
 
   return (
     <div className={css.filterWrapper}>
+      <h2>Contacts</h2>
       <label htmlFor="filter">Find contacts by name</label>
       <input
         type="text"
