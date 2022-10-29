@@ -21,8 +21,8 @@ const Navigation = () => {
 
   return (
     <nav>
-      <NavLink to="/">Главная</NavLink>
-      {isLoggedIn && <NavLink to="/todos">Заметки</NavLink>}
+      <NavLink to="/">HomePage</NavLink>
+      {isLoggedIn && <NavLink to="/contacts">Contacts</NavLink>}
     </nav>
   );
 };
