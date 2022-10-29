@@ -34,6 +34,7 @@ const ContactForm = () => {
   return (
     <form className={css.form} onSubmit={handleSubmit}>
       <div className={css.wrapper}>
+        <h2>Phonebook</h2>
         <div>
           <label htmlFor="inputName">Name</label>
           <input
