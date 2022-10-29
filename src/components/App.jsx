@@ -8,7 +8,6 @@ const App = () => {
   return (
     <div className={css.appWrapper}>
       <ContactForm />
-
       <Filter />
       <ContactsList />
     </div>
