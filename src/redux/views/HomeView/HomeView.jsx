@@ -1,3 +1,4 @@
+// import { Outlet } from 'react-router-dom';
 import css from './HomeView.module.css';
 
 const HomeView = () => {
@@ -9,6 +10,7 @@ const HomeView = () => {
           💁‍♀️
         </span>
       </h1>
+      {/* <Outlet /> */}
     </div>
   );
 };

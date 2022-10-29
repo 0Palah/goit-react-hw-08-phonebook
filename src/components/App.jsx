@@ -1,13 +1,13 @@
 // import Section from './Section/Section';
-import ContactForm from './ContactForm/ContactForm';
+// import ContactForm from './ContactForm/ContactForm';
 import ContactsList from './ContactsList/ContactsList';
 import Filter from './Filter/Filter';
-import css from './App.module.css';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import RegisterView from 'redux/views/RegisterView/RegisterView';
-import { Layout } from 'redux/views/Layout/Layout';
+import Layout from 'redux/views/Layout/Layout';
 import HomeView from 'redux/views/HomeView/HomeView';
 import LoginView from 'redux/views/LoginView/LoginView';
+import css from './App.module.css';
 
 const App = () => {
   return (
@@ -15,12 +15,13 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomeView />} />
-          <Route path="/contacts " element={<ContactsList />} />
+          <Route path="/register" element={<RegisterView />} />
+          <Route path="/login" element={<LoginView />} />
+          <Route path="/contacts" element={<ContactsList />} />
+          <Route path="*" element={<Navigate to="/" replace={true} />} />
         </Route>
-        <Route path="/register" element={<RegisterView />} />
-        <Route path="/login" element={<LoginView />} />
       </Routes>
-      <ContactForm />
+
       <Filter />
     </div>
   );
