@@ -4,7 +4,6 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 import authOperations from 'redux/auth/authThunks';
 import Layout from 'redux/views/Layout/Layout';
-// import HomeView from 'redux/views/HomeView/HomeView';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import css from './App.module.css';
 import PublicRoute from './PublicRoute/PublicRoute';

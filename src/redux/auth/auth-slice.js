@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import authOperations from './authThunks';
-// import { authOperations } from './auth-operations';
+
 
 export const authInitialState = {
   user: { name: null, email: null },
