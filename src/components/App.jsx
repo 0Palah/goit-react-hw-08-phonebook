@@ -4,10 +4,12 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 import authOperations from 'redux/auth/authThunks';
 import Layout from 'redux/views/Layout/Layout';
-import HomeView from 'redux/views/HomeView/HomeView';
+// import HomeView from 'redux/views/HomeView/HomeView';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import css from './App.module.css';
+import PublicRoute from './PublicRoute/PublicRoute';
 
+const HomeView = lazy(() => import('../redux/views/HomeView/HomeView'));
 const ContactForm = lazy(() => import('./ContactForm/ContactForm'));
 const LoginView = lazy(() => import('../redux/views/LoginView/LoginView'));
 const RegisterView = lazy(() =>
@@ -25,15 +27,15 @@ const App = () => {
     <div className={css.appWrapper}>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<HomeView />} />
           <Route
-            path="/register"
+            index
             element={
               <Suspense fallback={<p>Wait, please</p>}>
-                <RegisterView />
+                <HomeView />
               </Suspense>
             }
           />
+
           <Route path="/" element={<PrivateRoute />}>
             <Route
               path="/contacts"
@@ -44,14 +46,24 @@ const App = () => {
               }
             />
           </Route>
-          <Route
-            path="/login"
-            element={
-              <Suspense fallback={<p>Wait, please</p>}>
-                <LoginView />
-              </Suspense>
-            }
-          />
+          <Route path="/" element={<PublicRoute />}>
+            <Route
+              path="/register"
+              element={
+                <Suspense fallback={<p>Wait, please</p>}>
+                  <RegisterView />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <Suspense fallback={<p>Wait, please</p>}>
+                  <LoginView />
+                </Suspense>
+              }
+            />
+          </Route>
 
           <Route path="*" element={<Navigate to="/" replace={true} />} />
         </Route>
