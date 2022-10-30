@@ -12,33 +12,33 @@ const token = {
   },
 };
 
-/*
- * POST @ /users/signup
- * body: { name, email, password }
- * После успешной регистрации добавляем токен в HTTP-заголовок
- */
-const register = createAsyncThunk('auth/register', async credentials => {
-  try {
-    const { data } = await axios.post('/users/signup', credentials);
-    token.set(data.token);
-    return data;
-  } catch (error) {
-    alert(error.message);
+const register = createAsyncThunk(
+  'auth/register',
+  async (credentials, thunkAPI) => {
+    try {
+      const { data } = await axios.post('/users/signup', credentials);
+      token.set(data.token);
+      return data;
+    } catch (error) {
+      alert(error.message);
+      return thunkAPI.rejectWithValue();
+    }
   }
-});
+);
 
 /*
  * POST @ /users/login
  * body: { email, password }
  * После успешного логина добавляем токен в HTTP-заголовок
  */
-const logIn = createAsyncThunk('auth/login', async credentials => {
+const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
   try {
     const { data } = await axios.post('/users/login', credentials);
     token.set(data.token);
     return data;
   } catch (error) {
     alert(error.message);
+    return thunkAPI.rejectWithValue();
   }
 });
 
@@ -47,12 +47,13 @@ const logIn = createAsyncThunk('auth/login', async credentials => {
  * headers: Authorization: Bearer token
  * После успешного логаута, удаляем токен из HTTP-заголовка
  */
-const logOut = createAsyncThunk('auth/logout', async () => {
+const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await axios.post('/users/logout');
     token.unset();
   } catch (error) {
     alert(error.message);
+    return thunkAPI.rejectWithValue();
   }
 });
 /*
@@ -68,19 +69,20 @@ const fetchCurrentUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
-    console.log(state);
     const persistedToken = state.auth.token;
 
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue();
     }
 
-    token.set(persistedToken);
     try {
+      token.set(persistedToken);
       const { data } = await axios.get('/users/current');
       return data;
     } catch (error) {
-      alert(error.message);
+      console.log(error.message);
+      token.unset();
+      return thunkAPI.rejectWithValue();
     }
   }
 );
