@@ -21,7 +21,7 @@ const Navigation = () => {
 
   return (
     <nav className={css.navWrapper}>
-      <NavLink className={css.link} to="/">
+      <NavLink className={css.link} end to="/">
         HomePage
       </NavLink>
       {isLoggedIn && (

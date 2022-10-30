@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import authOperations from 'redux/auth/authThunks';
+import css from './Login.module.css';
 
 const styles = {
   form: {
@@ -37,12 +38,12 @@ export default function LoginView() {
   };
 
   return (
-    <div>
-      <h1>Страница логина</h1>
+    <div className={css.wrapper}>
+      <h1>Log in</h1>
 
-      <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
+      <form onSubmit={handleSubmit} className={css.form} autoComplete="off">
         <label style={styles.label}>
-          Почта
+          Email
           <input
             type="email"
             name="email"
@@ -52,7 +53,7 @@ export default function LoginView() {
         </label>
 
         <label style={styles.label}>
-          Пароль
+          Password
           <input
             type="password"
             name="password"

@@ -1,0 +1,16 @@
+.filterWrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.input {
+  text-align: center;
+  text-transform: capitalize;
+  max-width: 170px;
+  margin-left: auto;
+  margin-right: auto;
+}

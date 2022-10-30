@@ -5,12 +5,11 @@ const HomeView = () => {
   return (
     <div className={css.wrapper}>
       <h1 className={css.title}>
-        Приветственная страница нашего сервиса{' '}
+        WELCOME
         <span role="img" aria-label="Иконка приветствия">
-          💁‍♀️
+          🖖🏼
         </span>
       </h1>
-      {/* <Outlet /> */}
     </div>
   );
 };

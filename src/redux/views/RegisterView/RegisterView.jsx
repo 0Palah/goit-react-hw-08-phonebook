@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import authOperations from 'redux/auth/authThunks';
+import css from './RegisterView.module.css';
 
 const styles = {
   form: {
@@ -41,10 +42,10 @@ export default function RegisterView() {
   };
 
   return (
-    <div>
+    <div className={css.wrapper}>
       <h2>Registration</h2>
 
-      <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
+      <form onSubmit={handleSubmit} autoComplete="off">
         <label style={styles.label}>
           Name
           <input type="text" name="name" value={name} onChange={handleChange} />

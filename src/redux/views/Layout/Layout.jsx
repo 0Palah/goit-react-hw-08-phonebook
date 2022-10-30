@@ -4,7 +4,7 @@ import css from './Layout.module.css';
 
 const Layout = () => {
   return (
-    <div className="css.layoutWrapper">
+    <div className={css.layoutWrapper}>
       <AppBar />
       <Outlet />
     </div>

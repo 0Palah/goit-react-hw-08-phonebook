@@ -16,6 +16,7 @@ const Filter = () => {
       <h2>Contacts</h2>
       <label htmlFor="filter">Find contacts by name</label>
       <input
+        className={css.input}
         type="text"
         value={filter}
         id="filter"

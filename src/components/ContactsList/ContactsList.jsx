@@ -29,7 +29,7 @@ const ContactsList = () => {
       {items?.length > 0 &&
         applyFilters().map(el => (
           <li key={el.id}>
-            {el.name}: {el.phone}
+            {el.name}: {el.number}
             <button
               type="button"
               className={css.button}
