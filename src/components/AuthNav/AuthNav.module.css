@@ -1,0 +1,11 @@
+.authNavWrapper {
+  display: flex;
+  gap: 20px;
+  padding: 12px;
+  font-weight: 700;
+  color: #2a363b;
+}
+
+.link {
+  text-decoration: none;
+}

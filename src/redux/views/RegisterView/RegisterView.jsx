@@ -42,7 +42,7 @@ export default function RegisterView() {
 
   return (
     <div>
-      <h2>Страница регистрации</h2>
+      <h2>Registration</h2>
 
       <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
         <label style={styles.label}>
@@ -70,7 +70,7 @@ export default function RegisterView() {
           />
         </label>
 
-        <button type="submit">Зарегистрироваться</button>
+        <button type="submit">Sign up</button>
       </form>
     </div>
   );

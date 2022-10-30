@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-// import styled from 'styled-components';
 import authSelectors from 'redux/auth/auth-selectors';
 import { useSelector } from 'react-redux';
+import css from './Navigation.module.css';
 
 // const Link = styled(NavLink)`
 //   display: inline-block;
@@ -20,9 +20,15 @@ const Navigation = () => {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
   return (
-    <nav>
-      <NavLink to="/">HomePage</NavLink>
-      {isLoggedIn && <NavLink to="/contacts">Contacts</NavLink>}
+    <nav className={css.navWrapper}>
+      <NavLink className={css.link} to="/">
+        HomePage
+      </NavLink>
+      {isLoggedIn && (
+        <NavLink className={css.link} to="/contacts">
+          Contacts
+        </NavLink>
+      )}
     </nav>
   );
 };
