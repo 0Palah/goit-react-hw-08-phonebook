@@ -4,8 +4,8 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 import authOperations from 'redux/auth/authThunks';
 import Layout from 'redux/views/Layout/Layout';
-import PrivateRoute from '../routes/PrivateRoute/PrivateRoute';
-import PublicRoute from '../routes/PublicRoute/PublicRoute';
+import PrivateRoute from '../routes/PrivateRoute';
+import PublicRoute from '../routes/PublicRoute';
 import css from './App.module.css';
 
 const HomeView = lazy(() => import('../redux/views/HomeView/HomeView'));
