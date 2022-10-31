@@ -4,9 +4,9 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 import authOperations from 'redux/auth/authThunks';
 import Layout from 'redux/views/Layout/Layout';
-import PrivateRoute from './PrivateRoute/PrivateRoute';
+import PrivateRoute from '../routes/PrivateRoute/PrivateRoute';
+import PublicRoute from '../routes/PublicRoute/PublicRoute';
 import css from './App.module.css';
-import PublicRoute from './PublicRoute/PublicRoute';
 
 const HomeView = lazy(() => import('../redux/views/HomeView/HomeView'));
 const ContactForm = lazy(() => import('./ContactForm/ContactForm'));
